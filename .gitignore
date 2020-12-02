@@ -2,3 +2,5 @@
 .vs/*
 ElectricCarSalesTableApp.Core/bin/*
 ElectricCarSalesTableApp.Core/obj/*
+TestApp/bin/*
+TestApp/obj/*
