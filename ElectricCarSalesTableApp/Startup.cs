@@ -1,3 +1,6 @@
+using ElectricCarSalesTableApp.Core;
+using ElectricCarSalesTableApp.Core.Interfaces;
+using ElectricCarSalesTableApp.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -20,11 +23,17 @@ namespace ElectricCarSalesTableApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddSingleton<ISalesDataTableLoader, SalesDataTableLoader>();
+
+            var datapath = Configuration["datapath"];
+            services.AddSingleton<ISalesTableFactory>(loader => ActivatorUtilities.CreateInstance<SalesTableFactory>(loader, datapath));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

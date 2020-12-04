@@ -4,6 +4,6 @@ namespace ElectricCarSalesTableApp.Core.Interfaces
 {
     public interface ISalesDataTableLoader
     {
-        DataTable GetTable(string v);
+        DataTable GetTable(string path);
     }
 }

@@ -10,10 +10,17 @@ namespace ElectricCarSalesTableApp.Core
         public DataTable GetTable(string path)
         {
             var table = new DataTable();
-            using (var csv = new CachedCsvReader(new StreamReader(path), true))
+
+            try
             {
-                table.Load(csv);
+                using (var csv = new CachedCsvReader(new StreamReader(path), true))
+                {
+                    table.Load(csv);
+                }
+
+                return table;
             }
+            catch { }
 
             return table;
         }

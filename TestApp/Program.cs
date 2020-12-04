@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using ElectricCarSalesTableApp.Core.Interfaces;
+using System;
 using System.Threading.Tasks;
 
 namespace TestApp
@@ -8,6 +9,12 @@ namespace TestApp
     {
         static async Task Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Application requires filepath as input.");
+                return;
+            }
+
             var builder = new ContainerBuilder();
             builder.RegisterModule<TestAppModule>();
 
@@ -16,8 +23,11 @@ namespace TestApp
             var dataTableLoader = container.Resolve<ISalesDataTableLoader>();
             var dataTable = await Task.Factory.StartNew(() => dataTableLoader.GetTable(args[0]));
 
-            var dataViewer = container.Resolve<ISalesDataTableViewer>();
-            dataViewer.Display(dataTable);
+            if (dataTable != null)
+            {
+                var dataViewer = container.Resolve<ISalesDataTableViewer>();
+                dataViewer.Display(dataTable);
+            }
         }
     }
 }
