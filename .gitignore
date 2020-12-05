@@ -4,3 +4,5 @@ ElectricCarSalesTableApp.Core/bin/*
 ElectricCarSalesTableApp.Core/obj/*
 TestApp/bin/*
 TestApp/obj/*
+ElectricCarSalesTableApp.Core.UnitTests/bin/*
+ElectricCarSalesTableApp.Core.UnitTests/obj/*

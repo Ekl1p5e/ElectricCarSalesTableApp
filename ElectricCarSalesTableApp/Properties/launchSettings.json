@@ -18,6 +18,7 @@
     },
     "ElectricCarSalesTableApp": {
       "commandName": "Project",
+      "commandLineArgs": "--datapath=%HOMEPATH%\\Desktop\\testfile.txt",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
