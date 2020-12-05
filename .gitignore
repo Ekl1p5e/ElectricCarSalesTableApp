@@ -6,3 +6,5 @@ TestApp/bin/*
 TestApp/obj/*
 ElectricCarSalesTableApp.Core.UnitTests/bin/*
 ElectricCarSalesTableApp.Core.UnitTests/obj/*
+ElectricCarSalesTableApp.UnitTests/bin/*
+ElectricCarSalesTableApp.UnitTests/obj/*

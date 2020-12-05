@@ -13,7 +13,7 @@ namespace ElectricCarSalesTableApp
 
         public SalesTableFactory(ISalesDataTableLoader tableLoader, string filepath)
         {
-            _filepath = filepath ?? throw new ArgumentNullException(nameof(filepath));
+            _filepath = !string.IsNullOrWhiteSpace(filepath) ? filepath : throw new ArgumentNullException(nameof(filepath));
             _tableLoader = tableLoader ?? throw new ArgumentNullException(nameof(tableLoader));
         }
 
